@@ -1,8 +1,10 @@
 ﻿/*
 ===========================================================
+I attest that this following code represents my own work and is subject to
+the plagiarism policy found in the course syllabus.
 Course: CSC 242
 Assignment: Signature Assignment – Chapter 8 Streams
-Group Members: LEONARDO BROWN AND PRASCEDES TANDA
+Group Members: Terrance McCall AND PRASCEDES TANDA
 Date: NOV 20 2025
 ===========================================================
 Description:
@@ -59,14 +61,14 @@ static string toLowerCopy(string s) {
         [](unsigned char c) { return static_cast<char>(tolower(c)); });
     return s;
 }
-
+// I'm not sure why we're transforming letters for spell check; Unix library should include words with upper and lower case *Terrance
 void spellChecker(const string& dictionaryFile, const string& inputFile) {
     ifstream dict(dictionaryFile);
     if (!dict) {
         cerr << "Error: Cannot open dictionary file: " << dictionaryFile << endl;
         return;
     }
-
+// Is this where main would begin? *Terrance.
     unordered_set<string> dictionary; // lowercase words
     string w;
     while (dict >> w) {
@@ -74,6 +76,7 @@ void spellChecker(const string& dictionaryFile, const string& inputFile) {
         dictionary.insert(w);
     }
     dict.close();
+      // You've opted to use an unordered set instead of a vector, though I'm not s
 
     ifstream in(inputFile);
     if (!in) {
@@ -91,6 +94,8 @@ void spellChecker(const string& dictionaryFile, const string& inputFile) {
     }
     in.close();
 }
+// I see a spell check function, although it currently just initializes the dictionary, but no usage
+// of the function in the code. *Terrance
 
 /*
 -----------------------------------------------------------
@@ -242,4 +247,5 @@ int main(int argc, char* argv[]) {
     cerr << "Unknown command. Use 'spell' or 'crypt'.\n";
     return 1;
 }
+
 
